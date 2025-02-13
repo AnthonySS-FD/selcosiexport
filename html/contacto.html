@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Gold Export Perú</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #AA8C2C;
+            --light-gold: #F4E5AF;
+            --dark: #1A1A1A;
+            --light: #FFFFFF;
+            --gradient: linear-gradient(135deg, #D4AF37 0%, #AA8C2C 100%);
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Bona Nova SC", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    background: rgba(26, 26, 26, 0.95) transparent;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    
+}
+
+.nav.scrolled {
+    padding: 0.8rem 0.5rem;
+    background: rgba(26, 26, 26, 0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    opacity: 0.8;
+    image-resolution: from-image;   
+   
+    
+}
+
+
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--gold);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 1;
+}
+
+
+.logo i {
+    font-size: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+        body {
+            background: #f8f9fa;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .contact-hero {
+            height: 70vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)),
+                        url('https://selcosiexport.com/wp-content/uploads/2024/10/463443215_411751901970799_5906721152477765339_n.jpg') center/cover fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+        .heroimg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            transition: all 0.6s ease;
+        }
+
+        .heroimg.scrolled{
+            width: 50%;
+            height: 50%;
+            object-fit: cover;
+            z-index: -1;
+            transition: all 0.6s ease;
+        }
+
+        .contact-content {
+            max-width: 1400px;
+            margin: -100px auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-info {
+            background: var(--dark);
+            padding: 3rem;
+            border-radius: 20px;
+            color: var(--light);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: var(--glass);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(10px);
+        }
+
+        .info-item i {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-right: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover i {
+            background: var(--gold);
+            color: var(--light);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            background: #f8f9fa;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+            background: var(--light);
+        }
+
+        
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--glass);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            top: 100%;
+            left: 0;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .social-link:hover {
+            color: var(--light);
+            transform: translateY(-5px);
+        }
+
+        .social-link:hover::before {
+            top: 0;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 500px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .map-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .map-container:hover::before {
+            opacity: 0.1;
+        }
+
+        .floating-label {
+            position: relative;
+        }
+
+        .floating-label label {
+            position: absolute;
+            left: 1rem;
+            top: 1.2rem;
+            padding: 0 0.5rem;
+            color: #666;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-size: 1rem;
+        }
+
+        .floating-label input:focus + label,
+        .floating-label input:not(:placeholder-shown) + label,
+        .floating-label textarea:focus + label,
+        .floating-label textarea:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            left: 0.8rem;
+            font-size: 0.8rem;
+            color: var(--gold);
+            background: var(--light);
+            padding: 0 0.5rem;
+        }
+
+        .success-message, .error-message {
+            display: none;
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-weight: 500;
+            animation: slideIn 0.5s ease;
+        }
+
+        .success-message {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .error-message {
+            background: #f44336;
+            color: white;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 3rem;
+            }
+
+            .contact-content {
+                margin-top: -50px;
+            }
+
+            .info-item {
+                padding: 1rem;
+            }
+
+            .info-item i {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Animaciones para elementos al hacer scroll */
+        [data-aos] {
+            opacity: 0;
+            transition-property: transform, opacity;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+        }
+
+        /* Efectos de hover para campos del formulario */
+        .form-group:hover .form-control {
+            border-color: var(--light-gold);
+        }
+
+        /* Estilos para el select personalizado */
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.5em;
+            padding-right: 3rem;
+        }
+
+        .Btn {
+  width: 280px;
+  height: 70px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(to right,#bf953f,#fcf6ba,#b38728,#fbf5b7,#aa771c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.6em;
+  color: rgb(121, 103, 3);
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition-duration: 3s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.144);
+  background-size: 200% 200%;
+}
+
+.logoIcon path {
+  fill: rgb(121, 103, 3);
+}
+
+.Btn:hover {
+  transform: scale(0.95);
+  transition-duration: 3s;
+  animation: gradient 5s ease infinite;
+  background-position: right;
+}
+
+
+/* Professional Footer */
+.footer {
+    background: var(--dark);
+    color: var(--light);
+    padding: 6rem 2rem 2rem;
+}
+
+.footer-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-column h3 {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    gap: 1rem;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: #999;
+}
+
+.footer-contact-item i {
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background: var(--gold);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    text-align: center;
+    color: #666;
+}
+
+.footer-bottom p {
+    margin-bottom: 1rem;
+}
+
+.footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        gap: 2rem;
+    }
+
+    .footer-bottom-links {
+        gap: 1rem;
+    }
+}
+.contenedor-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+}
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/index.html" class="logo">
+                <img src="https://selcosiexport.com/wp-content/uploads/2023/06/Recurso-1GO-CHEF-white-e1696903263851.png" alt="" class="heroimg">
+            </a>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <a href="/index.html">Inicio</a>
+                <a href="/html/nosotros.html">Nosotros</a>
+                <a href="services.html">Servicios</a>
+                <a href="/html/contacto.html">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-hero" data-aos="fade">
+        <div class="hero-content">
+            <h1>Contáctanos</h1>
+            <p>Somos expertos en exportación de oro y estamos aquí para ayudarte a alcanzar tus objetivos comerciales. Contacta con nuestro equipo de profesionales hoy mismo.</p>
+        </div>
+    </div>
+
+    <div class="contact-content">
+        <div class="contact-grid">
+            <div class="contact-info" data-aos="fade-right" data-aos-delay="200">
+                <h2 style="color: var(--gold); margin-bottom: 2rem; font-size: 2rem;">Información de Contacto</h2>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Ubicación</h3>
+                        <p>Av. Principal 123, Lima, Perú</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Teléfono</h3>
+                        <p>+51 1 234 5678</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@goldexportperu.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Horario de Atención</h3>
+                        <p>Lunes - Viernes: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form" data-aos="fade-left" data-aos-delay="400">
+                <h2 style="color: var(--dark); margin-bottom: 2rem; font-size: 2rem;">Envíanos un Mensaje</h2>
+                
+                <form id="contactForm">
+                    <div class="form-group floating-label">
+                        <input type="text" class="form-control" id="name" placeholder=" "required>
+                        <label for="name">Nombre Completo</label>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <input type="email" class="form-control" id="email" placeholder=" " required>
+                        <label for="email">Correo Electrónico</label>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <input type="tel" class="form-control" id="phone" placeholder=" " required>
+                        <label for="phone">Teléfono</label>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <select class="form-control" id="subject" required>
+                            <option value="" selected disabled>Seleccione un tema</option>
+                            <option value="exportacion">Exportación de Oro</option>
+                            <option value="certificacion">Certificación</option>
+                            <option value="logistica">Logística Internacional</option>
+                            <option value="consultoria">Consultoría Especializada</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group floating-label">
+                        <textarea class="form-control" id="message" rows="5" placeholder=" " required></textarea>
+                        <label for="message">Mensaje</label>
+                    </div>
+
+
+                    <div class="contenedor-btn">
+                        <button type="submit" class="Btn">
+                            Enviar Mensaje
+                            <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
+                        </button>
+
+                    </div>
+                    
+                </form>
+
+                <div class="success-message">
+                    <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
+                    ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
+                </div>
+                <div class="error-message">
+                    <i class="fas fa-exclamation-circle" style="margin-right: 0.5rem;"></i>
+                    Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container" data-aos="fade-up" data-aos-delay="600">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.964560146264!2d-77.03196518561798!3d-12.046654645143056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b5d35662c7%3A0x25e71b8b8d5e6f6b!2sLima%2C%20Peru!5e0!3m2!1sen!2s!4v1635097203669!5m2!1sen!2s" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Professional Footer -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-column">
+            <h3>Sobre Nosotros</h3>
+            <p style="color: #999; line-height: 1.6; margin-bottom: 2rem;">
+                Gold Export Perú es líder en la exportación de oro, comprometidos con la excelencia y la calidad en cada proceso.
+            </p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h3>Enlaces Rápidos</h3>
+            <ul class="footer-links">
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Servicios</h3>
+            <ul class="footer-links">
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Exportación de Oro</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Certificación</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Logística Internacional</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Asesoría Legal</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Contacto</h3>
+            <div class="footer-contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Av. Principal 123, Lima, Perú</p>
+            </div>
+            <div class="footer-contact-item">
+                <i class="fas fa-phone"></i>
+                <p>+51 1 234 5678</p>
+            </div>
+            <div class="footer-contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>info@goldexportperu.com</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Gold Export Perú. Todos los derechos reservados.</p>
+        <div class="footer-bottom-links">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Política de Cookies</a>
+        </div>
+    </div>
+</footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Inicialización de AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Manejo del formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const successMessage = document.querySelector('.success-message');
+            const errorMessage = document.querySelector('.error-message');
+            
+            // Deshabilitar el botón durante el envío
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            
+            // Simulación de envío de formulario (aquí iría la lógica real de envío)
+            setTimeout(() => {
+                const success = Math.random() > 0.1; // 90% de éxito para demo
+                
+                if (success) {
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    form.reset();
+                    
+                    // Resetear los estados de los campos flotantes
+                    document.querySelectorAll('.floating-label').forEach(label => {
+                        label.classList.remove('focused');
+                    });
+                } else {
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+                }
+                
+                // Restaurar el botón
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Enviar Mensaje <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>';
+                
+                // Ocultar mensajes después de 5 segundos
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+
+        // Manejo de las etiquetas flotantes
+        document.querySelectorAll('.form-control').forEach(control => {
+            control.addEventListener('focus', function() {
+                this.closest('.floating-label').classList.add('focused');
+            });
+            
+            control.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.closest('.floating-label').classList.remove('focused');
+                }
+            });
+            
+            // Mantener las etiquetas flotantes si hay valor
+            if (control.value) {
+                control.closest('.floating-label').classList.add('focused');
+            }
+        });
+
+      
+        // Animación suave para los elementos de información
+        document.querySelectorAll('.info-item').forEach((item, index) => {
+            item.style.transitionDelay = (index * 100) + 'ms';
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.heroimg');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+    </script>
+</body>
+</html>
