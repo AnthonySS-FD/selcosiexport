@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios Premium - Selcosi Export</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --dark-gold: #AA8C2C;
+      --light-gold: #F4E5AF;
+      --dark: #1A1A1A;
+      --light: #FFFFFF;
+      --grey: #303030;
+      --gradient-gold: linear-gradient(135deg, var(--dark-gold), var(--gold), var(--light-gold), var(--gold));
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      background-color: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+    
+    .section-services {
+      position: relative;
+      padding: 100px 0;
+    }
+    
+    .bg-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/api/placeholder/1920/1080') center/cover;
+      opacity: 0.03;
+      z-index: -1;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    
+    /* Header Styles */
+    .section-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    
+    .section-subtitle {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+      position: relative;
+      padding: 0 30px;
+    }
+    
+    .section-subtitle:before,
+    .section-subtitle:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+    
+    .section-subtitle:before {
+      left: 0;
+    }
+    
+    .section-subtitle:after {
+      right: 0;
+    }
+    
+    .section-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      background: var(--gradient-gold);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .section-description {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #aaa;
+      line-height: 1.8;
+    }
+    
+    /* Services Styles */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+    
+    .service-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+      z-index: 1;
+      opacity: 0.3;
+      transition: opacity 0.5s ease;
+    }
+    
+    .service-card:hover::before {
+      opacity: 0.5;
+    }
+    
+    .service-image {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .service-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+    
+    .service-card:hover .service-image img {
+      transform: scale(1.1);
+    }
+    
+    .service-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--dark-gold);
+      color: var(--light);
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      z-index: 2;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+    
+    .service-content {
+      position: relative;
+      padding: 30px;
+      z-index: 2;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .service-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 50%;
+      margin-bottom: 25px;
+      transition: all 0.5s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      background: var(--dark-gold);
+    }
+    
+    .service-icon i {
+      font-size: 1.8rem;
+      color: var(--gold);
+      transition: all 0.5s ease;
+    }
+    
+    .service-card:hover .service-icon i {
+      color: var(--light);
+    }
+    
+    .service-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--light-gold);
+      transition: color 0.3s ease;
+    }
+    
+    .service-card:hover .service-title {
+      color: var(--gold);
+    }
+    
+    .service-description {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    
+    .service-features {
+      list-style-type: none;
+      margin-bottom: 30px;
+    }
+    
+    .service-features li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    
+    .service-features li i {
+      color: var(--gold);
+      margin-right: 10px;
+      font-size: 0.8rem;
+    }
+    
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--gold);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      cursor: pointer;
+    }
+    
+    .service-link i {
+      margin-left: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-link:hover {
+      color: var(--light-gold);
+    }
+    
+    .service-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      position: relative;
+      background: rgba(48, 48, 48, 0.95);
+      max-width: 800px;
+      width: 90%;
+      border-radius: 20px;
+      padding: 50px;
+      transform: translateY(50px);
+      transition: all 0.5s ease;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      backdrop-filter: blur(10px);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-close:hover {
+      background: rgba(212, 175, 55, 0.2);
+    }
+    
+    .modal-close i {
+      color: var(--light);
+      font-size: 1.2rem;
+    }
+    
+    .modal-image {
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    
+    .modal-image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    
+    .modal-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--gold);
+    }
+    
+    .modal-subtitle {
+      color: var(--light-gold);
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+    
+    .modal-description {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .modal-section {
+      margin-bottom: 25px;
+    }
+    
+    .modal-section-title {
+      font-size: 1.2rem;
+      color: var(--light-gold);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .modal-section-title i {
+      margin-right: 10px;
+      color: var(--gold);
+    }
+    
+    .modal-list {
+      list-style-type: none;
+      margin-bottom: 20px;
+    }
+    
+    .modal-list li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      color: #aaa;
+    }
+    
+    .modal-list li i {
+      color: var(--gold);
+      margin-right: 10px;
+      font-size: 0.8rem;
+      margin-top: 6px;
+    }
+    
+    .modal-cta {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    .modal-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--gold);
+      color: var(--dark);
+      border-radius: 50px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-btn:hover {
+      background: var(--dark-gold);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      margin-top: 100px;
+      position: relative;
+      padding: 80px 0;
+      background: linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    
+    .cta-container {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--light);
+    }
+    
+    .cta-description {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      border: 2px solid var(--gold);
+    }
+    
+    .cta-btn-primary:hover {
+      background: var(--dark-gold);
+      border-color: var(--dark-gold);
+    }
+    
+    .cta-btn-secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .cta-btn-secondary:hover {
+      border-color: var(--light);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Floating Elements */
+    .floating-element {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--dark-gold) 0%, transparent 70%);
+      opacity: 0.1;
+      z-index: 0;
+      filter: blur(50px);
+    }
+    
+    .floating-1 {
+      top: -150px;
+      left: -100px;
+    }
+    
+    .floating-2 {
+      bottom: -100px;
+      right: -150px;
+    }
+    
+    /* Cursor Effects */
+    .custom-cursor {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, border-color 0.2s;
+      z-index: 9999;
+      opacity: 0.6;
+      display: none; /* Initially hidden, shown only on large screens */
+    }
+    
+    @media (min-width: 1024px) {
+      .custom-cursor {
+        display: block;
+      }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+      .section-title {
+        font-size: 3rem;
+      }
+      
+      .services-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      
+      .modal-content {
+        padding: 40px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .section-services {
+        padding: 70px 0;
+      }
+      
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-section {
+        padding: 60px 20px;
+      }
+      
+      .cta-title {
+        font-size: 2rem;
+      }
+      
+      .modal-content {
+        padding: 30px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .service-card {
+        border-radius: 10px;
+      }
+      
+      .service-image {
+        height: 200px;
+      }
+      
+      .modal-title {
+        font-size: 1.6rem;
+      }
+      
+      .modal-content {
+        padding: 20px;
+      }
+    }
+    
+    /* Loading Animation */
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+    
+    .loading {
+      background: linear-gradient(to right, var(--dark) 4%, rgba(255, 255, 255, 0.1) 25%, var(--dark) 36%);
+      background-size: 1000px 100%;
+      animation: shimmer 2s infinite linear;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="custom-cursor"></div>
+  
+  <section class="section-services">
+    <div class="bg-pattern"></div>
+    <div class="floating-element floating-1"></div>
+    <div class="floating-element floating-2"></div>
+    
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-subtitle">Excelencia en cada lingote</span>
+        <br>
+        <h2 class="section-title">Nuestros Servicios Premium</h2>
+        <p class="section-description">Selcosi Export ofrece soluciones integrales en la industria del oro, combinando la más alta calidad con prácticas sostenibles y responsables para satisfacer las exigencias del mercado global.</p>
+      </div>
+      
+      <div class="services-container">
+        <!-- Servicio 1 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="service-badge">Servicio Destacado</span>
+          <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Exportación de Oro Premium">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3 class="service-title">Exportación de Oro Premium</h3>
+            <p class="service-description">Exportamos barras y lingotes de la más alta calidad, cumpliendo con los estándares internacionales más exigentes y garantizando pureza certificada.</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check-circle"></i> Certificación internacional</li>
+              <li><i class="fas fa-check-circle"></i> Pureza garantizada</li>
+              <li><i class="fas fa-check-circle"></i> Trazabilidad completa</li>
+            </ul>
+            <a class="service-link" data-modal="modal-1">Descubrir más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Servicio 2 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Presencia Internacional">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-globe-americas"></i>
+            </div>
+            <h3 class="service-title">Presencia Global Estratégica</h3>
+            <p class="service-description">Operamos en mercados clave de Asia y Medio Oriente, con una red consolidada que asegura la distribución eficiente y confiable de nuestros productos.</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check-circle"></i> Presencia en China y Dubai</li>
+              <li><i class="fas fa-check-circle"></i> Alianzas estratégicas en India</li>
+              <li><i class="fas fa-check-circle"></i> Red logística optimizada</li>
+            </ul>
+            <a class="service-link" data-modal="modal-2">Descubrir más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Servicio 3 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Infraestructura Operativa">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-industry"></i>
+            </div>
+            <h3 class="service-title">Infraestructura Operativa Elite</h3>
+            <p class="service-description">Contamos con instalaciones estratégicamente ubicadas en Perú, Bolivia, Ecuador y Colombia, supervisando cada etapa del proceso productivo.</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check-circle"></i> Control directo de procesos</li>
+              <li><i class="fas fa-check-circle"></i> Estándares de seguridad avanzados</li>
+              <li><i class="fas fa-check-circle"></i> Tecnología de vanguardia</li>
+            </ul>
+            <a class="service-link" data-modal="modal-3">Descubrir más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Servicio 4 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <span class="service-badge">Mayor Demanda</span>
+          <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Oro Ético y Sostenible">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="service-title">Oro Ético y Sostenible</h3>
+            <p class="service-description">Priorizamos prácticas responsables y sostenibles en toda nuestra cadena de valor, desde la extracción hasta la comercialización final.</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check-circle"></i> Minería responsable</li>
+              <li><i class="fas fa-check-circle"></i> Desarrollo comunitario</li>
+              <li><i class="fas fa-check-circle"></i> Minimización de impacto ambiental</li>
+            </ul>
+            <a class="service-link" data-modal="modal-4">Descubrir más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Servicio 5 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Relaciones Comerciales Estratégicas">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3 class="service-title">Relaciones Comerciales de Élite</h3>
+            <p class="service-description">Desarrollamos alianzas duraderas con clientes premium, ofreciendo condiciones preferenciales y servicio personalizado a cada socio comercial.</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check-circle"></i> Joyerías de alta gama</li>
+              <li><i class="fas fa-check-circle"></i> Fabricantes tecnológicos</li>
+              <li><i class="fas fa-check-circle"></i> Inversores institucionales</li>
+            </ul>
+            <a class="service-link" data-modal="modal-5">Descubrir más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <!-- Servicio 6 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Inteligencia de Mercado">
+          </div>
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="service-title">Inteligencia de Mercado Avanzada</h3>
+            <p class="service-description">Contamos con un equipo especializado que monitorea las tendencias globales para anticiparnos a las fluctuaciones y oportunidades del mercado.</p>
+            <ul class="service-features">
+              <li><i class="fas fa-check-circle"></i> Análisis de tendencias</li>
+              <li><i class="fas fa-check-circle"></i> Estrategias personalizadas</li>
+              <li><i class="fas fa-check-circle"></i> Asesoramiento experto</li>
+            </ul>
+            <a class="service-link" data-modal="modal-6">Descubrir más <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modals -->
+      <!-- Modal 1 -->
+      <div id="modal-1" class="modal">
+        <div class="modal-content">
+          <div class="modal-close"><i class="fas fa-times"></i></div>
+          <div class="modal-image">
+            <img src="/api/placeholder/800/400" alt="Exportación de Oro Premium">
+          </div>
+          <h3 class="modal-title">Exportación de Oro Premium</h3>
+          <p class="modal-subtitle">Llevando la excelencia en oro a los mercados más exigentes del mundo</p>
+          <p class="modal-description">
+            En Selcosi Export, hemos establecido un estándar de excelencia en la exportación de oro, atendiendo a los mercados más selectos y exigentes a nivel global. Nuestros procesos garantizan la más alta calidad y pureza en cada lingote, respaldados por certificaciones internacionales y un sistema de trazabilidad integral.
+          </p>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-medal"></i> Estándares de Calidad</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Pureza garantizada:</strong> Cada pieza es analizada en laboratorios certificados para asegurar pureza de 99.99%</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Certificación LBMA:</strong> Cumplimos con los estándares de la London Bullion Market Association</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Controles rigurosos:</strong> Implementamos múltiples niveles de verificación durante todo el proceso</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-shipping-fast"></i> Logística Especializada</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Transporte blindado:</strong> Utilizamos los sistemas de seguridad más avanzados del mercado</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Rutas optimizadas:</strong> Planificación estratégica para minimizar tiempos y riesgos</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Seguimiento en tiempo real:</strong> Monitoreo 24/7 de cada envío desde origen hasta destino</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-globe"></i> Mercados Principales</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Entidades financieras:</strong> Bancos centrales y reservas estatales</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Industria de lujo:</strong> Principales casas de joyería internacional</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Inversores institucionales:</strong> Fondos de inversión y family offices</li>
+            </ul>
+          </div>
+          
+          <div class="modal-cta">
+            <a href="#" class="modal-btn">Solicitar una consulta especializada</a>
+          </div>
+        </div>
+      </div>
+      <!-- Modal 2 -->
+      <div id="modal-2" class="modal">
+        <div class="modal-content">
+          <div class="modal-close"><i class="fas fa-times"></i></div>
+          <div class="modal-image">
+            <img src="/api/placeholder/800/400" alt="Presencia Global Estratégica">
+          </div>
+          <h3 class="modal-title">Presencia Global Estratégica</h3>
+          <p class="modal-subtitle">Construyendo conexiones en los principales mercados internacionales</p>
+          <p class="modal-description">
+            Nuestra estrategia de expansión global nos ha permitido establecer una sólida presencia en los mercados más importantes para la industria del oro. Hemos desarrollado una red de distribución eficiente que nos permite atender de manera ágil y confiable a clientes en Asia, Medio Oriente y más allá.
+          </p>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-map-marked-alt"></i> Presencia Internacional</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Asia:</strong> Oficinas comerciales en Shanghai y Hong Kong, con cobertura en toda la región</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Medio Oriente:</strong> Centro de operaciones en Dubai con acceso privilegiado al mercado árabe</li>
+              <li><i class="fas fa-check-circle"></i> <strong>India:</strong> Alianzas estratégicas con los principales actores del mercado joyero</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-handshake"></i> Alianzas Estratégicas</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Acuerdos exclusivos:</strong> Relaciones preferenciales con compradores institucionales</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Redes locales:</strong> Equipos con profundo conocimiento de cada mercado regional</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Cumplimiento normativo:</strong> Adaptación a los requerimientos legales de cada jurisdicción</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-route"></i> Ventajas Logísticas</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Centros de distribución:</strong> Ubicaciones estratégicas para reducir tiempos de entrega</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Sistemas aduaneros:</strong> Procesos optimizados para agilizar trámites fronterizos</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Respuesta rápida:</strong> Capacidad de atender demandas urgentes en tiempo récord</li>
+            </ul>
+          </div>
+          
+          <div class="modal-cta">
+            <a href="#" class="modal-btn">Conocer nuestros mercados clave</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal 3 -->
+      <div id="modal-3" class="modal">
+        <div class="modal-content">
+          <div class="modal-close"><i class="fas fa-times"></i></div>
+          <div class="modal-image">
+            <img src="/api/placeholder/800/400" alt="Infraestructura Operativa Elite">
+          </div>
+          <h3 class="modal-title">Infraestructura Operativa Elite</h3>
+          <p class="modal-subtitle">Base operacional de excelencia para asegurar la más alta calidad</p>
+          <p class="modal-description">
+            Hemos desarrollado una infraestructura de primera clase que nos permite supervisar y controlar cada etapa del proceso productivo. Nuestras instalaciones estratégicamente ubicadas en Sudamérica garantizan un suministro constante y de máxima calidad.
+          </p>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-building"></i> Instalaciones de Vanguardia</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Plantas de procesamiento:</strong> Tecnología de última generación para refinado y fundición</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Laboratorios propios:</strong> Equipos avanzados para análisis y control de calidad</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Seguridad integral:</strong> Sistemas biométricos y vigilancia 24/7 en todas las instalaciones</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-cog"></i> Procesos Optimizados</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Control centralizado:</strong> Monitoreo en tiempo real de todas las operaciones</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Eficiencia energética:</strong> Implementación de soluciones sostenibles en todos los procesos</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Capacidad escalable:</strong> Infraestructura diseñada para adaptarse rápidamente a la demanda</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-map-marker-alt"></i> Ubicaciones Estratégicas</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Perú:</strong> Centro principal de operaciones, con acceso directo a zonas productoras</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Bolivia:</strong> Instalaciones complementarias para asegurar capacidad continua</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Ecuador y Colombia:</strong> Puntos de presencia para ampliar cobertura regional</li>
+            </ul>
+          </div>
+          
+          <div class="modal-cta">
+            <a href="#" class="modal-btn">Solicitar visita a nuestras instalaciones</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal 4 -->
+      <div id="modal-4" class="modal">
+        <div class="modal-content">
+          <div class="modal-close"><i class="fas fa-times"></i></div>
+          <div class="modal-image">
+            <img src="/api/placeholder/800/400" alt="Oro Ético y Sostenible">
+          </div>
+          <h3 class="modal-title">Oro Ético y Sostenible</h3>
+          <p class="modal-subtitle">Compromiso con prácticas responsables en toda nuestra cadena de valor</p>
+          <p class="modal-description">
+            En Selcosi Export creemos firmemente que la excelencia incluye la responsabilidad. Por eso, hemos implementado políticas estrictas que aseguran que nuestro oro sea producido de manera ética, respetando el medio ambiente y apoyando a las comunidades locales.
+          </p>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-seedling"></i> Sostenibilidad Ambiental</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Cero mercurio:</strong> Implementación de tecnologías limpias en todos nuestros procesos</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Rehabilitación:</strong> Programas de recuperación en áreas intervenidas</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Eficiencia hídrica:</strong> Sistemas de reciclaje y tratamiento de aguas</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-users"></i> Desarrollo Comunitario</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Empleo local:</strong> Priorización de talento de las comunidades vecinas</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Programas sociales:</strong> Inversión en educación, salud e infraestructura</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Consulta previa:</strong> Diálogo constante con comunidades indígenas y locales</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-certificate"></i> Certificaciones</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Fairmined:</strong> Cumplimiento de estándares de minería artesanal responsable</li>
+              <li><i class="fas fa-check-circle"></i> <strong>CRAFT:</strong> Código para la mitigación de riesgos en la minería artesanal</li>
+              <li><i class="fas fa-check-circle"></i> <strong>ISO 14001:</strong> Sistema de gestión ambiental certificado</li>
+            </ul>
+          </div>
+          
+          <div class="modal-cta">
+            <a href="#" class="modal-btn">Conocer nuestras iniciativas de sostenibilidad</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal 5 -->
+      <div id="modal-5" class="modal">
+        <div class="modal-content">
+          <div class="modal-close"><i class="fas fa-times"></i></div>
+          <div class="modal-image">
+            <img src="/api/placeholder/800/400" alt="Relaciones Comerciales de Élite">
+          </div>
+          <h3 class="modal-title">Relaciones Comerciales de Élite</h3>
+          <p class="modal-subtitle">Construyendo alianzas duraderas con los líderes del mercado</p>
+          <p class="modal-description">
+            Hemos cultivado relaciones privilegiadas con los actores más importantes de la industria global del oro. Nuestro enfoque en la excelencia nos ha permitido establecer vínculos comerciales sólidos con compradores de primer nivel en todo el mundo.
+          </p>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-crown"></i> Clientes Premium</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Joyerías de lujo:</strong> Proveedores certificados de las principales marcas internacionales</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Sector tecnológico:</strong> Suministro constante a fabricantes de electrónica avanzada</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Entidades financieras:</strong> Alianzas con bancos y fondos de inversión de primer nivel</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-award"></i> Beneficios Exclusivos</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Precios preferenciales:</strong> Estructuras de precio competitivas para socios estratégicos</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Entregas prioritarias:</strong> Garantía de suministro incluso en momentos de alta demanda</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Productos personalizados:</strong> Capacidad de ajustar especificaciones según requerimientos</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-handshake"></i> Principios Comerciales</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Transparencia total:</strong> Información clara y precisa en todas las transacciones</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Cumplimiento:</strong> Adhesión estricta a todas las regulaciones internacionales</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Confidencialidad:</strong> Protección rigurosa de la información de nuestros socios</li>
+            </ul>
+          </div>
+          
+          <div class="modal-cta">
+            <a href="#" class="modal-btn">Explorar oportunidades de colaboración</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Modal 6 -->
+      <div id="modal-6" class="modal">
+        <div class="modal-content">
+          <div class="modal-close"><i class="fas fa-times"></i></div>
+          <div class="modal-image">
+            <img src="/api/placeholder/800/400" alt="Inteligencia de Mercado Avanzada">
+          </div>
+          <h3 class="modal-title">Inteligencia de Mercado Avanzada</h3>
+          <p class="modal-subtitle">Anticipando tendencias para maximizar oportunidades</p>
+          <p class="modal-description">
+            Nuestro equipo de analistas expertos monitorea constantemente las dinámicas del mercado global del oro para identificar tendencias emergentes y optimizar nuestras estrategias. Esta capacidad nos permite ofrecer asesoramiento de valor a nuestros socios.
+          </p>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-brain"></i> Capacidades Analíticas</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Análisis predictivo:</strong> Modelos avanzados para anticipar movimientos de mercado</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Big data:</strong> Procesamiento de grandes volúmenes de información para identificar patrones</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Monitoreo 24/7:</strong> Seguimiento continuo de indicadores clave y eventos globales</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-chart-line"></i> Servicios de Inteligencia</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Reportes periódicos:</strong> Análisis detallados sobre las condiciones del mercado</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Alertas estratégicas:</strong> Notificaciones inmediatas sobre cambios significativos</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Consultoría personalizada:</strong> Asesoramiento adaptado a las necesidades específicas de cada cliente</li>
+            </ul>
+          </div>
+          
+          <div class="modal-section">
+            <h4 class="modal-section-title"><i class="fas fa-lightbulb"></i> Ventajas Competitivas</h4>
+            <ul class="modal-list">
+              <li><i class="fas fa-check-circle"></i> <strong>Timing óptimo:</strong> Identificación de los mejores momentos para operaciones clave</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Gestión de riesgos:</strong> Evaluación continua de factores que pueden impactar el mercado</li>
+              <li><i class="fas fa-check-circle"></i> <strong>Visión estratégica:</strong> Perspectiva a largo plazo para decisiones informadas</li>
+            </ul>
+          </div>
+          
+          <div class="modal-cta">
+            <a href="#" class="modal-btn">Solicitar análisis personalizado</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA Section -->
+      <div class="cta-section" data-aos="fade-up">
+        <div class="cta-container">
+          <h3 class="cta-title">Eleve su negocio con un socio de confianza</h3>
+          <p class="cta-description">Descubra cómo Selcosi Export puede convertirse en su aliado estratégico, ofreciendo soluciones a medida y el más alto estándar de calidad en la industria del oro.</p>
+          <div class="cta-buttons">
+            <a href="#" class="cta-btn cta-btn-primary">Solicitar una propuesta</a>
+            <a href="#" class="cta-btn cta-btn-secondary">Conocer más sobre nosotros</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true
+    });
+    
+    // Modal Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Modal Open
+      document.querySelectorAll('[data-modal]').forEach(button => {
+        button.addEventListener('click', function() {
+          const modalId = this.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+      
+      // Modal Close
+      document.querySelectorAll('.modal-close').forEach(closeButton => {
+        closeButton.addEventListener('click', function() {
+          const modal = this.closest('.modal');
+          if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+      
+      // Close Modal on Outside Click
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+          if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    });
+    
+    // Custom Cursor
+    const cursor = document.querySelector('.custom-cursor');
+    
+    if (window.innerWidth >= 1024) {
+      document.addEventListener('mousemove', function(e) {
+        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      });
+      
+      // Change cursor on hover over clickable elements
+      document.querySelectorAll('a, button, .service-link, .modal-close').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+          cursor.style.width = '50px';
+          cursor.style.height = '50px';
+          cursor.style.borderColor = 'var(--dark-gold)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+          cursor.style.width = '40px';
+          cursor.style.height = '40px';
+          cursor.style.borderColor = 'var(--gold)';
+        });
+      });
+    }
+  </script>
+</body>
+</html>
