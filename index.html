@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selcosi Export SAC| Exportación de Oro al Mundo</title>
+    <link rel="icon" type="image/x-icon" href="https://selcosiexport.com/wp-content/uploads/2023/06/Recurso-1GO-CHEF-white-e1696903263851.png" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,8 +17,6 @@
     <div class="preloader">
         <div class="loader"></div>
     </div>
-
-    <div class="cursor-follow"></div>
 
     <nav class="nav">
         <div class="nav-content">
@@ -40,7 +39,7 @@
         
        
         <video class="video-background" autoplay muted loop>
-            <source src="hero_selcosi.mp4" type="video/mp4">
+            <source src="videos/hero_selcosi.mp4" type="video/mp4">
         </video>
         
         <div class="header-overlay"></div>
@@ -88,7 +87,7 @@
     <div class="stats-container">
         <div class="stats-grid">
             <div class="stat-item" data-aos="fade-up">
-                <div class="stat-number" data-value="15">0</div>
+                <div class="stat-number" data-value="10">0</div>
                 <div class="stat-label">Años de Experiencia</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
@@ -96,11 +95,11 @@
                 <div class="stat-label">Toneladas Exportadas</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="stat-number" data-value="50">0</div>
+                <div class="stat-number" data-value="10">0</div>
                 <div class="stat-label">Países Alcanzados</div>
             </div>
             <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-number" data-value="98">0</div>
+                <div class="stat-number" data-value="100">0</div>
                 <div class="stat-label">Satisfacción del Cliente %</div>
             </div>
         </div>
@@ -149,6 +148,7 @@
             </div>
         </div>
     </div>
+    
 </section>
 
 <!-- Modales para cada paso del proceso -->
@@ -663,7 +663,7 @@
     <div class="team-grid">
         <div class="team-member" data-aos="fade-up">
             <div class="member-image">
-                <img src="https://cdn.pixabay.com/photo/2024/10/26/03/05/honeybee-9150104_960_720.jpg" alt="Team Member">
+                <img src="https://media.istockphoto.com/id/638644472/photo/smiling-african-woman-with-arms-crossed-on-white-background.jpg?s=2048x2048&w=is&k=20&c=HW81O9oXfIiiFwtJn04OryNplqepY04oZso1pJzX_gk=" alt="Team Member">
             </div>
             <div class="member-info">
                 <h3 class="member-name">Carlos Rodríguez</h3>
@@ -671,14 +671,15 @@
                 <p class="member-bio">Más de 20 años liderando el sector minero.</p>
                 <div class="member-social">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
         </div>
         <!-- Add more team members -->
         <div class="team-member" data-aos="fade-up">
             <div class="member-image">
-                <img src="https://cdn.pixabay.com/photo/2024/10/26/03/05/honeybee-9150104_960_720.jpg" alt="Team Member">
+                <img src="https://cdn.pixabay.com/photo/2020/10/19/09/44/woman-5667299_960_720.jpg" alt="Team Member">
             </div>
             <div class="member-info">
                 <h3 class="member-name">Carlos Rodríguez</h3>
@@ -686,14 +687,15 @@
                 <p class="member-bio">Más de 20 años liderando el sector minero.</p>
                 <div class="member-social">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
         </div>
 
         <div class="team-member" data-aos="fade-up">
             <div class="member-image">
-                <img src="https://cdn.pixabay.com/photo/2024/10/26/03/05/honeybee-9150104_960_720.jpg" alt="Team Member">
+                <img src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_960_720.jpg" alt="Team Member">
             </div>
             <div class="member-info">
                 <h3 class="member-name">Carlos Rodríguez</h3>
@@ -701,7 +703,8 @@
                 <p class="member-bio">Más de 20 años liderando el sector minero.</p>
                 <div class="member-social">
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
         </div>
@@ -938,23 +941,7 @@
             }, 500);
         });
 
-        // Cursor follow effect
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('.cursor-follow');
-            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px) scale(1)`;
-        });
-
-        document.addEventListener('mousedown', () => {
-            const cursor = document.querySelector('.cursor-follow');
-            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px) scale(0.8)`;
-        });
-
-        document.addEventListener('mouseup', () => {
-            const cursor = document.querySelector('.cursor-follow');
-            cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px) scale(1)`;
-        });
-
-    
+       
         // Smooth scroll
         document.querySelector('.scroll-indicator').addEventListener('click', () => {
             window.scrollTo({
