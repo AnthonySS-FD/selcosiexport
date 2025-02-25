@@ -35,17 +35,7 @@
 }
 
 
-.cursor-follow {
-    width: 20px;
-    height: 20px;
-    background: var(--gold);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.2s;
-}
+
 
 .nav {
     position: fixed;
@@ -684,14 +674,14 @@
     margin-right: 30px;
     position: relative;
     z-index: 2;
-    box-shadow: 0 5px 15px rgba(255, 251, 0, 0.829);
+    box-shadow: 0 5px 15px rgb(255, 251, 0);
     transition: transform 0.3s, box-shadow 0.3s;
   }
   
   .process-step:hover .step-number {
     transform: scale(1.1);
     box-shadow: 0 8px 20px rgba(255, 230, 0, 0.4);
-    background-color: var(--accent-color);
+    background-color: var(--dark-gold);
   }
   
   .step-content {
@@ -1583,8 +1573,9 @@
 }
 
 .social-link:hover {
-    background: var(--gold);
+    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
     transform: translateY(-3px);
+    color: black;
 }
 
 /* New Section: Blog */
@@ -2648,3 +2639,4 @@ a {
     margin-top: 20px;
 
   }
+
